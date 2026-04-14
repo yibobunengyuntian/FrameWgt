@@ -235,8 +235,9 @@ void FrameWgt::updateRadius(const uint &r)
     QString ca = QString::number(m_bgColor.alpha()); // 获取透明度分量
     m_pBorder->setStyleSheet(QString("QWidget#Border{border-radius: %1px;background-color: rgba(%2, %3, %4, %5);}").arg(QString::number(r), cr, cg, cb, ca));
 
+    m_pBorder->style()->unpolish(m_pBorder);
+    m_pBorder->style()->polish(m_pBorder);
     m_pTitleBar->setRadius(r);
-    // updateSize();
     update();
 }
 
